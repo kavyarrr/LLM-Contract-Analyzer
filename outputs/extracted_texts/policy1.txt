@@ -1,3 +1,5 @@
+
+--- Page 1 ---
  
  
  
@@ -80,6 +82,8 @@ authorized representative.
  
  
  
+
+--- Page 2 ---
  
  
  
@@ -170,6 +174,8 @@ Emergency care means management for an Illness or Injury which results in sympto
 unexpectedly, and requires immediate care by a Medical Practitioner to prevent death or serious long term 
 impairment of the Insured person’s health. 
  
+
+--- Page 3 ---
  
  
  
@@ -251,6 +257,8 @@ monitoring devices, critical care nursing and intensivist charges.
 End  stage  renal  disease  presenting  as  chronic  irreversible  failure  of  both kidneys  to  function,  as  a  result  
 of  which  either  regular  renal  dialysis (hemodialysis or peritoneal dialysis) is instituted or renal transplantation is 
 carried  out.  Diagnosis has to be confirmed by a Specialist Medical Practitioner. 
+
+--- Page 4 ---
  
  
  
@@ -336,6 +344,8 @@ Portability means the right accorded to an individual health insurance policyhol
 under family cover) to transfer the credit gained for pre-existing conditions and time-bound exclusions from 
 one insurer to another. 
  
+
+--- Page 5 ---
  
  
  
@@ -419,6 +429,8 @@ such a manner or with intent to threaten the unity, integrity, security or sover
 the people or any section of the people by using bombs, dynamite or other explosive substances or inflammable 
 substances or firearms or other lethal weapons or poisons or noxious gases or other chemicals or by any other 
 substances (whether biological or otherwise) of a hazardous nature or by any other means whatsoever, with 
+
+--- Page 6 ---
  
  
  
@@ -500,6 +512,8 @@ definition. Provided however only treatment commencing within 24 hours of the Em
 14. Emergency Inpatient Dental Treatment arising from an Accident:- 
 Emergency Inpatient Dental Treatment arising from an Accident refers to acute Emergency Dental Treatment that 
 is due to a serious Accident and requires admission to Hospital. The treatment must take place within 24 hours of 
+
+--- Page 7 ---
  
  
  
@@ -583,6 +597,8 @@ the nearest available and appropriate Hospital or licensed medical facility.
 Medical consumable and equipment includes syringes, needles, sutures, staples, packaging, tubing, 
 catheters, medical gloves, gowns, masks, adhesives and sealants for wound dressing and a whole host of other 
 devices and tools used with a Hospital or surgical environment 
+
+--- Page 8 ---
  
  
  
@@ -663,6 +679,8 @@ Insured and any annexures and/or Endorsements attaching to and / or forming part
 commencement of Policy Period or during the Policy Period. 
  
  
+
+--- Page 9 ---
  
  
  
@@ -745,6 +763,8 @@ brain Injury) or articulation disorders involving the oral structure (e.g. cleft
  
  
  
+
+--- Page 10 ---
  
  
  
@@ -825,6 +845,8 @@ We have accepted an Inpatient Hospitalization claim under Inpatient Hospitalizat
  
  
  
+
+--- Page 11 ---
  
  
  
@@ -904,6 +926,8 @@ The claim will be admissible under the Policy provided that, the Illness/Injury 
 procedure performed on the Insured cannot be carried out on out-patient basis. 
  
  
+
+--- Page 12 ---
  
  
  
@@ -976,6 +1000,8 @@ Annexure III subject to the Sum Insured, terms, conditions and definitions, excl
 expressed in this Policy. 
  
  
+
+--- Page 13 ---
  
  
  
@@ -1088,6 +1114,8 @@ contained or otherwise expressed in this Policy.
 The Deductible is Optional and the amount will apply as specified in the Policy Schedule, if opted. 
  
  
+
+--- Page 14 ---
  
  
  
@@ -1170,6 +1198,8 @@ Return transportation to the client’s home by any mode of transport is exclude
 This cover is subject to the Sum Insured, sub-limits, terms, conditions and definitions, exclusions contained or 
 otherwise expressed in this Policy. 
  
+
+--- Page 15 ---
  
  
  
@@ -1250,6 +1280,8 @@ persons with mental Illness, where persons with mental Illness are admitted for 
 Exclusions: Mental Illness Treatment does not cover: 
 a. Any expenses for Mental Illness Treatment related to Alcoholism, drug or substance abuse or any addictive 
 condition and consequences thereof. . 
+
+--- Page 16 ---
  
  
  
@@ -1330,6 +1362,8 @@ were repatriated.
  
 The return journey must take place within one month after treatment has been completed.  
  
+
+--- Page 17 ---
  
  
  
@@ -1411,6 +1445,8 @@ Annexure III subject to the Sum Insured, terms, conditions and definitions, excl
 expressed in this Policy. 
  
  
+
+--- Page 18 ---
  
  
  
@@ -1491,6 +1527,8 @@ treatment and dental prescription drugs.
 We will pay Customary and Reasonable expenses up to the limits specified in the Policy Schedule incurred for 
 Dental Surgery which includes the surgical extraction of teeth, as well as other tooth-related surgical procedures 
 such as apicoectomy, Surgical removal of cysts, Orthognathic surgeries for the correction of malocclusion and 
+
+--- Page 19 ---
  
  
  
@@ -1618,6 +1656,8 @@ Modern Treatment Methods
 and Advancement in 
 Technologies 
 Up to Sum Insured 
+
+--- Page 20 ---
  
  
  
@@ -1725,6 +1765,8 @@ e. If the Insured is continuously covered without any break as defined under the
 stipulated by IRDAI, then waiting period for the same would be reduced to the extent of prior coverage. 
 f. 
 List of specific diseases/procedures is as below 
+
+--- Page 21 ---
  
  
  
@@ -1822,6 +1864,8 @@ greater than or equal to 40 or
 ii. 
 greater than or equal to 35 in conjunction with any of the following severe co-morbidities following failure 
 of less invasive methods of weight loss: 
+
+--- Page 22 ---
  
  
  
@@ -1905,6 +1949,8 @@ a. Medical Treatment Expenses traceable to childbirth (including complicated del
 incurred during Hospitalization) except ectopic pregnancy. 
 b. Expenses towards miscarriage (unless due to an Accident) and lawful medical termination of pregnancy during 
 the Policy Period. 
+
+--- Page 23 ---
  
  
  
@@ -1985,6 +2031,8 @@ in Your Table of Benefits:
 oral and maxillofacial surgical procedures, which are covered within the overall limit of Your In-patient Plan 
  Dietician fees 
  Expenses for one person accompanying an evacuated/repatriated person 
+
+--- Page 24 ---
  
  
  
@@ -2070,6 +2118,8 @@ List of specific diseases/procedures is as below
 12. Fibromyoma 
 13. Endometriosis 
 14. Hysterectomy 
+
+--- Page 25 ---
  
  
  
@@ -2166,6 +2216,8 @@ of the opposite sex.
 8) Cosmetic or plastic Surgery (Code-Excl08) 
 Expenses for cosmetic or plastic surgery or any treatment to change appearance unless for reconstruction 
 following an Accident, Burn(s) or Cancer or as part of Medically Necessary Treatment to remove a direct and 
+
+--- Page 26 ---
  
  
  
@@ -2247,6 +2299,8 @@ orthodontics, surgery of any kind unless as a result of Accidental Bodily Injury
 Hospitalization unless specified . 
 2) Medical expenses where Inpatient care is not warranted and does not require supervision of qualified nursing 
 staff and qualified Medical Practitioner round the clock 
+
+--- Page 27 ---
  
  
  
@@ -2329,6 +2383,8 @@ oral and maxillofacial surgical procedures, which are covered within the overall
  Out-patient treatment  
  Prescribed glasses and contact lenses including eye examination 
  Prescribed medical aids  
+
+--- Page 28 ---
  
  
  
@@ -2406,6 +2462,8 @@ b. Physiotherapy does not include therapies such as Rolfing, massage, Pilates, F
  
  
  
+
+--- Page 29 ---
  
  
  
@@ -2486,6 +2544,8 @@ Insured shall only be indemnified the treatment costs in accordance with the ter
 policy. 
  
  
+
+--- Page 30 ---
  
  
  
@@ -2579,6 +2639,8 @@ fraud by the insured person by giving 15 days’ written notice. There would be 
 on grounds of misrepresentation, non-disclosure of material facts or fraud. 
  
  
+
+--- Page 31 ---
  
  
  
@@ -2661,6 +2723,8 @@ in the event of payment of premium within the stipulated grace Period.
 iv. No interest will be charged If the instalment premium is not paid on due date.  
 v. In case of instalment premium due not received within the grace period, the Policy will get cancelled.  
 vi. In the event of a claim, all subsequent premium instalments shall immediately become due and payable.  
+
+--- Page 32 ---
  
  
  
@@ -2745,6 +2809,8 @@ condition precedent to any liability of the Company to make any payment for clai
 b) The Insured shall notify the Company in writing of any material change in the risk in relation to the declaration 
 made in the proposal form or medical examination report at each Renewal and the Company may, adjust 
 the scope of cover and / or premium, if necessary, accordingly.  
+
+--- Page 33 ---
  
  
  
@@ -2825,6 +2891,8 @@ same claim.
 ii. The Day Care Procedure listed are subject to the exclusions, terms and conditions of the Policy and will not be 
 treated as independent coverage under the Policy. 
 iii. We shall make payment in Indian Rupees only. 
+
+--- Page 34 ---
  
  
  
@@ -2909,6 +2977,8 @@ The terms and conditions contained herein and in the Policy Schedule shall be de
 Policy and shall be read together as one document. 
  
  
+
+--- Page 35 ---
  
  
  
@@ -2989,6 +3059,8 @@ moving out of India.” In the Standard Terms and Conditions shall not be applic
 covers the international Health coverage. 
  
  
+
+--- Page 36 ---
  
  
  
@@ -3077,6 +3149,8 @@ USD 500
 USD 1000
 9%
 6%
+
+--- Page 37 ---
  
  
  
@@ -3162,6 +3236,8 @@ each claim every time You receive treatment. Once You reach the Deductible amoun
 You. 
 Attach all supporting receipts and/or invoices with  Your claim. 
  
+
+--- Page 38 ---
  
  
  
@@ -3250,6 +3326,8 @@ treatment and the fees charged.)
 3. Claim back Your eligible costs via Our MyHealth app or online portal (www.allianzcare.com/en/myhealth). 
 Simply enter a few key details, add Your invoice(s) and press ‘submit’. 
  
+
+--- Page 39 ---
  
  
  
@@ -3329,6 +3407,8 @@ such claim shall not, within 12 calendar months from the date of such disclaimer
 the subject matter of a suit or proceeding before a competent Court of law in India or any other competent 
 statutory forum/tribunal in India, then all benefits/indemnities under the Policy shall be forfeited and the rights 
 of Insured shall stand extinguished and the liability of the Insurer shall also stand discharged. 
+
+--- Page 40 ---
  
  
  
@@ -3409,6 +3489,8 @@ AHMEDABAD – 380 001.
 Tel.: 079 - 25501201/02/05/06 
 Email: bimalokpal.ahmedabad@cioins.co.in   
 Gujarat, Dadra & Nagar Haveli, Daman and Diu 
+
+--- Page 41 ---
  
  
  
@@ -3496,6 +3578,8 @@ Nr. Panbazar over bridge, S.S. Road,
 Guwahati – 781001(ASSAM). 
 Assam, Meghalaya, Manipur, Mizoram, Arunachal Pradesh, Nagaland and 
 Tripura. 
+
+--- Page 42 ---
  
  
  
@@ -3589,6 +3673,8 @@ State of Uttarakhand and the following Districts of Uttar Pradesh: Agra,
 Aligarh, Bagpat, Bareilly, Bijnor, Budaun, Bulandshehar, Etah, Kannauj, 
 Mainpuri, Mathura, Meerut, Moradabad, Muzaffarnagar, Oraiyya, Pilibhit, 
 Etawah, Farrukhabad, Firozbad, Gautam Buddh nagar, Ghaziabad, Hardoi, 
+
+--- Page 43 ---
  
  
  
@@ -3686,6 +3772,8 @@ Disease
 220  Fibroadenoma breast excision 
 20  Thyroplasty Type I 
 221  OesophagealvaricesSclerotherapy 
+
+--- Page 44 ---
  
  
  
@@ -3793,6 +3881,8 @@ eye ball.
 257  Circumcision for Trauma 
 59  Treatment of retinal lesion 
 258   Meatoplasty 
+
+--- Page 45 ---
  
  
  
@@ -3903,6 +3993,8 @@ Bone grafts
 300  Arthroplasty 
 102  Neoadjuvant radiotherapy 
 301  Partial removal of rib 
+
+--- Page 46 ---
  
  
  
@@ -4013,6 +4105,8 @@ oesophageal
 344   Removal of vesical stone  
 145  Kidney renoscopy  and biopsy 
 345   Excision Sigmoid Polyp 
+
+--- Page 47 ---
  
  
  
@@ -4124,6 +4218,8 @@ Gastroenterology
 388  Vaginal mesh For POP 
 187  Esophagoscope and sclerosant injection 
 389  Laparoscopic Myomectomy 
+
+--- Page 48 ---
  
  
  
@@ -4227,6 +4323,8 @@ CERTIFICATE CHARGES
 COURIER CHARGES 
 19 
 MEDICAL CERTIFICATE 
+
+--- Page 49 ---
  
  
  

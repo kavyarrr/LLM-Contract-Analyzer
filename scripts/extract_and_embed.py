@@ -4,6 +4,8 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 import faiss
 import pickle
+import re
+from transformers import AutoTokenizer
 
 # === Folder paths ===
 DATA_DIR = "../data/"
@@ -16,10 +18,11 @@ os.makedirs(VECTOR_STORE_DIR, exist_ok=True)
 # === Step 1: Extract text from each PDF ===
 def extract_text_from_pdf(pdf_path):
     doc = fitz.open(pdf_path)
-    text = ""
-    for page in doc:
-        text += page.get_text()
-    return text
+    texts = []
+    for page_num, page in enumerate(doc, start=1):
+        page_text = page.get_text()
+        texts.append((page_text, page_num))
+    return texts  # List of (text, page_number)
 
 print("📄 Extracting text from PDFs...")
 
@@ -27,40 +30,112 @@ all_texts = {}
 for filename in os.listdir(DATA_DIR):
     if filename.endswith(".pdf"):
         pdf_path = os.path.join(DATA_DIR, filename)
-        text = extract_text_from_pdf(pdf_path)
+        page_texts = extract_text_from_pdf(pdf_path)
         
         txt_file = os.path.join(OUTPUT_TEXT_DIR, filename.replace(".pdf", ".txt"))
         with open(txt_file, "w", encoding="utf-8") as f:
-            f.write(text)
+            for page_text, page_num in page_texts:
+                f.write(f"\n--- Page {page_num} ---\n")
+                f.write(page_text)
         print(f"✅ Saved text from {filename}")
         
-        all_texts[filename] = text
+        all_texts[filename] = page_texts  # Store list of (text, page_number)
 
-# === Step 2: Chunk the text ===
-def chunk_text(text, max_words=120):
-    sentences = text.split(". ")
+# === Step 2: Semantic chunking ===
+def semantic_chunk_pdf_text(text, filename, page_number=None, min_tokens=100, max_tokens=150, overlap_tokens=20, tokenizer=None):
+    sentences = re.split(r'(?<=[.!?])\s+', text.strip())
+    sentences = [s for s in sentences if s]
+    if tokenizer is None:
+        tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
+
     chunks = []
-    current = ""
-    for sentence in sentences:
-        if len(current.split()) + len(sentence.split()) <= max_words:
-            current += sentence + ". "
+    meta = []
+    current_chunk = []
+    current_tokens = 0
+    chunk_index = 0
+    i = 0
+    while i < len(sentences):
+        sentence = sentences[i]
+        sentence_tokens = len(tokenizer.tokenize(sentence))
+
+        # 🆕 Truncate long sentences that exceed max_tokens
+        if sentence_tokens > max_tokens:
+            print(f"✂️ Truncating long sentence on page {page_number} of {filename}")
+            tokens = tokenizer.tokenize(sentence)[:max_tokens]
+            sentence = tokenizer.convert_tokens_to_string(tokens)
+            sentence_tokens = len(tokens)
+
+        if current_tokens + sentence_tokens <= max_tokens:
+            current_chunk.append(sentence)
+            current_tokens += sentence_tokens
+            i += 1
         else:
-            chunks.append(current.strip())
-            current = sentence + ". "
-    if current:
-        chunks.append(current.strip())
-    return chunks
+            if current_tokens < min_tokens and i < len(sentences):
+                current_chunk.append(sentence)
+                current_tokens += sentence_tokens
+                i += 1
+            else:
+                chunk_text = " ".join(current_chunk).strip()
+                chunks.append(chunk_text)
+                meta.append({
+                    "doc": filename,
+                    "page": page_number,
+                    "chunk_index": chunk_index,
+                    "text": chunk_text 
+                })
+                chunk_index += 1
+
+                # Overlap: keep last overlap_tokens from current_chunk
+                if overlap_tokens > 0 and current_chunk:
+                    overlap = []
+                    tokens_so_far = 0
+                    for sent in reversed(current_chunk):
+                        sent_tokens = len(tokenizer.tokenize(sent))
+                        if tokens_so_far + sent_tokens <= overlap_tokens:
+                            overlap.insert(0, sent)
+                            tokens_so_far += sent_tokens
+                        else:
+                            break
+                    current_chunk = overlap
+                    current_tokens = sum(len(tokenizer.tokenize(s)) for s in current_chunk)
+                else:
+                    current_chunk = []
+                    current_tokens = 0
+
+    # Add final leftover chunk
+    if current_chunk:
+        chunk_text = " ".join(current_chunk).strip()
+        chunks.append(chunk_text)
+        meta.append({
+            "doc": filename,
+            "page": page_number,
+            "chunk_index": chunk_index,
+            "text": chunk_text
+        })
+
+    return chunks, meta
+
 
 print("\n✂️ Chunking and embedding text...")
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
+tokenizer = AutoTokenizer.from_pretrained("sentence-transformers/all-MiniLM-L6-v2")
 all_chunks = []
 chunk_meta = []
 
-for doc_name, text in all_texts.items():
-    chunks = chunk_text(text)
-    all_chunks.extend(chunks)
-    chunk_meta.extend([{"doc": doc_name, "chunk_index": i} for i in range(len(chunks))])
+for doc_name, page_texts in all_texts.items():
+    for page_text, page_num in page_texts:
+        chunks, meta = semantic_chunk_pdf_text(
+            page_text,
+            filename=doc_name,
+            page_number=page_num,
+            min_tokens=100,
+            max_tokens=480,  
+            overlap_tokens=20,
+            tokenizer=tokenizer
+        )
+        all_chunks.extend(chunks)
+        chunk_meta.extend(meta)
 
 print(f"🔹 Total chunks: {len(all_chunks)}")
 

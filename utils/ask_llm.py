@@ -7,9 +7,22 @@ import time
 TOGETHER_URL = "https://api.together.xyz/v1/chat/completions"
 
 def extract_json(text):
-    """Extracts the first valid JSON object from model output."""
-    match = re.search(r"\{.*\}", text, re.S)
-    return match.group(0) if match else None
+    """Attempts to extract and clean a JSON object from raw text."""
+    try:
+        # Find the first JSON-looking block
+        match = re.search(r"\{.*\}", text, re.DOTALL)
+        if not match:
+            return None
+        raw = match.group(0)
+
+        # Clean common formatting issues
+        cleaned = raw.replace('\\n', '\n').replace('\\"', '"').replace("\\'", "'").replace('\\\\', '\\')
+
+        return cleaned
+    except Exception as e:
+        print(f"⚠️ extract_json error: {e}")
+        return None
+
 
 def call_llm(api_key, system_prompt, query, context):
     """Calls the Together API and returns raw LLM output."""
@@ -59,11 +72,12 @@ def ask_llm(query, context):
 
         if json_str:
             try:
-                # ✅ Return parsed JSON to ensure it's valid
                 parsed = json.loads(json_str)
                 return json.dumps(parsed)
-            except json.JSONDecodeError:
-                print("⚠️ LLM returned malformed JSON, retrying...")
+            except json.JSONDecodeError as e:
+                print(f"⚠️ Failed to parse cleaned JSON: {e}")
+                print(f"🧪 Cleaned JSON candidate:\n{json_str}")
+
 
         # Retry with stronger instruction
         time.sleep(1)

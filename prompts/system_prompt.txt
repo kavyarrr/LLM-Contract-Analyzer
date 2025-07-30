@@ -55,7 +55,7 @@ system_prompt = (
 
     "🛑 Do not make assumptions or hallucinate. Use only the context provided.\n\n"
 
-    "✅ Your response must always be a *strict JSON object* in the following format:\n"
+    "✅ Your response must always be a strict JSON object in the following format:\n"
     '{\n'
     '  "answer": "<YES or NO or UNKNOWN>",\n'
     '  "justification": "<1–2 line explanation referencing the context>",\n'

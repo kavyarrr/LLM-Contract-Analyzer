@@ -1,0 +1,92 @@
+[
+  {
+    "query": "Does the Global Health Care policy cover AYUSH Day Care treatments?",
+    "expected": {
+      "answer": "YES",
+      "clause": "Section B.4 - AYUSH Day Care Centre (Policy1)",
+      "justification": "Policy1 explicitly defines AYUSH Day Care Centre and covers treatments performed there.",
+      "confidence": 0.9
+    }
+  },
+  {
+    "query": "Is cashless facility available under the Golden Shield plan?",
+    "expected": {
+      "answer": "YES",
+      "clause": "Standard Definition - Cashless Facility (Policy5)",
+      "justification": "Policy5 states that cashless facility is provided to the insured at network hospitals.",
+      "confidence": 0.88
+    }
+  },
+  {
+    "query": "Does the Edelweiss Well Mother add-on cover infertility treatments?",
+    "expected": {
+      "answer": "NO",
+      "clause": "Exclusions - Well Mother Cover (Policy3)",
+      "justification": "Policy3 explicitly excludes any infertility treatments under the Well Mother cover.",
+      "confidence": 0.92
+    }
+  },
+  {
+    "query": "Is air ambulance expense covered for a distance of 200 km?",
+    "expected": {
+      "answer": "YES",
+      "clause": "Air Ambulance Cover (Policy3)",
+      "justification": "Policy3 covers air ambulance but only reimburses proportionate expenses for distances beyond 150 km.",
+      "confidence": 0.87
+    }
+  },
+  {
+    "query": "Does the domestic travel insurance policy cover hazardous occupations like offshore oil rig workers?",
+    "expected": {
+      "answer": "NO",
+      "clause": "Hazardous Occupation Exclusion (Policy2)",
+      "justification": "Policy2 excludes coverage for hazardous occupations including offshore oil rig workers.",
+      "confidence": 0.91
+    }
+  },
+  {
+    "query": "Does the HDFC Easy Health plan cover kidney failure requiring regular dialysis?",
+    "expected": {
+      "answer": "YES",
+      "clause": "Critical Illness Definition - Kidney Failure (Policy4)",
+      "justification": "Policy4 lists kidney failure requiring regular dialysis as a covered critical illness.",
+      "confidence": 0.9
+    }
+  },
+  {
+    "query": "Are maternity expenses covered under the ICICI Golden Shield policy?",
+    "expected": {
+      "answer": "YES",
+      "clause": "Maternity Expenses Definition (Policy5)",
+      "justification": "Policy5 states maternity expenses including complicated deliveries and lawful medical termination are covered.",
+      "confidence": 0.85
+    }
+  },
+  {
+    "query": "Are expenses for OPD root canal treatments covered under the travel insurance?",
+    "expected": {
+      "answer": "YES",
+      "clause": "OPD Treatment Definition (Policy2)",
+      "justification": "Policy2 specifies that OPD includes emergency root canal treatment.",
+      "confidence": 0.83
+    }
+  },
+  {
+    "query": "Does any of the policies cover cosmetic surgery purely for aesthetic reasons?",
+    "expected": {
+      "answer": "UNKNOWN",
+      "clause": null,
+      "justification": "None of the provided policy documents explicitly mention coverage or exclusion for cosmetic surgery for aesthetic purposes.",
+      "confidence": 0.5
+    }
+  },
+  {
+    "query": "What is the CEO's favorite food?",
+    "expected": {
+      "answer": "UNKNOWN",
+      "clause": null,
+      "justification": "This query is out of scope and unrelated to the provided policy documents.",
+      "confidence": 0.2
+    }
+  }
+]

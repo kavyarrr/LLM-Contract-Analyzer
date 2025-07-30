@@ -1,67 +1,73 @@
 import os
 import requests
+import json
+import re
+import time
 
-def ask_llm(query, context):
-    api_key = os.getenv("TOGETHER_API_KEY")
+TOGETHER_URL = "https://api.together.xyz/v1/chat/completions"
 
-    system_prompt = (
-    "You are a highly accurate legal assistant specializing in interpreting insurance contracts. "
-    "You must answer user queries strictly using the provided context, which includes clauses, definitions, and terms from real insurance documents.\n\n"
-    
-    "Your goal is to give a direct YES or NO answer to the user’s question. Always justify your answer in 1–2 concise lines using evidence from the context "
-    "and mention where in the context (page, section, clause) the justification was found.\n\n"
-    
-    "You must also rate your confidence in the answer from 0 to 1. Use high confidence (0.8–1.0) only when the answer is explicitly stated or clearly implied. "
-    "Use low confidence (0.0–0.5) when the context is vague or incomplete.\n\n"
-    
-    "If the answer cannot be determined from the given context, respond with:\n"
-    '{\n'
-    '  "answer": "UNKNOWN",\n'
-    '  "justification": "The answer could not be found in the provided context.",\n'
-    '  "source_clause": null,\n'
-    '  "confidence": 0.0\n'
-    '}\n\n'
+def extract_json(text):
+    """Extracts the first valid JSON object from model output."""
+    match = re.search(r"\{.*\}", text, re.S)
+    return match.group(0) if match else None
 
-    "🛑 Do not make assumptions or hallucinate.\n\n"
-    
-    "✅ Your response must always be a strict JSON object in the following format:\n"
-    '{\n'
-    '  "answer": "<YES or NO or UNKNOWN>",\n'
-    '  "justification": "<1–2 line explanation referencing the context>",\n'
-    '  "source_clause": "<Exact clause, section, or line if available, else null>",\n'
-    '  "confidence": <float between 0.0 and 1.0>\n'
-    '}'
-)
-
-
-    url = "https://api.together.xyz/v1/chat/completions"
+def call_llm(api_key, system_prompt, query, context):
+    """Calls the Together API and returns raw LLM output."""
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
 
-    prompt = f"{system_prompt}\n\nContext:\n{context}\n\nQuestion: {query}\nAnswer:"
+    # ✅ Strong final user message to enforce JSON
+    user_message = f"Context:\n{context}\n\nQuestion: {query}\n\n⚠️ Respond ONLY with a valid JSON object. Do NOT add any text outside the JSON."
+
     payload = {
-        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        # "model": "Qwen/Qwen3-32B-Instruct",
+        "model":"mistralai/Mixtral-8x7B-Instruct-v0.1",
+        # mistralai/Mistral-7B-Instruct-v0.2
+        # "model":"Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8",
         "messages": [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": prompt}
+            {"role": "user", "content": user_message}
         ],
-        "temperature": 0.3
+        "temperature": 0.2
     }
 
-    response = requests.post(url, headers=headers, json=payload)
-    result = response.json()
+    response = requests.post(TOGETHER_URL, headers=headers, json=payload)
+    return response.json()
 
-    # TEMP: debug print to see actual structure
-    import json
-    print("🔍 Response structure:")
-    print(json.dumps(result, indent=2))
+def ask_llm(query, context):
+    """Main function to get clean JSON from the LLM with retry."""
+    api_key = os.getenv("TOGETHER_API_KEY")
+    if not api_key:
+        raise EnvironmentError("❌ TOGETHER_API_KEY not found in environment variables.")
 
-    # Check if choices exists, else fall back
-    if "choices" in result:
-        return result["choices"][0]["message"]["content"]
-    elif "output" in result:
-        return result["output"]
-    else:
-        raise ValueError("Unexpected response format from Together API")
+    # ✅ Load system prompt
+    with open("prompts/system_prompt.txt", "r") as f:
+        system_prompt = f.read()
+
+    max_retries = 2
+    for attempt in range(max_retries):
+        result = call_llm(api_key, system_prompt, query, context)
+
+        # Debugging: show raw response
+        print("🔍 Raw API response:")
+        print(json.dumps(result, indent=2))
+
+        raw_output = result.get("choices", [{}])[0].get("message", {}).get("content", "")
+        json_str = extract_json(raw_output)
+
+        if json_str:
+            try:
+                # ✅ Return parsed JSON to ensure it's valid
+                parsed = json.loads(json_str)
+                return json.dumps(parsed)
+            except json.JSONDecodeError:
+                print("⚠️ LLM returned malformed JSON, retrying...")
+
+        # Retry with stronger instruction
+        time.sleep(1)
+        system_prompt += "\n\n🛑 STRICT RULE: Respond ONLY with a raw JSON object. No extra text."
+
+    # If all retries fail
+    raise ValueError("❌ Model failed to return valid JSON after retries.")

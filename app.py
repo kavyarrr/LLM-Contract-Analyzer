@@ -227,6 +227,19 @@ def main():
         )
         
         st.markdown("---")
+        st.markdown("### Question Guidelines")
+        st.markdown("""
+        **For best results, please ask YES/NO questions about insurance coverage.**
+        
+        **Examples:**
+        - Does the policy cover AYUSH treatments?
+        - Is cashless facility available?
+        - Are maternity expenses covered?
+        
+        **Note:** "What" questions may return UNKNOWN answers as the system is optimized for coverage verification.
+        """)
+        
+        st.markdown("---")
         st.markdown("### Available Documents")
         st.markdown("""
         - **Policy 1**: Global Health Care
@@ -234,15 +247,6 @@ def main():
         - **Policy 3**: Edelweiss Well Mother
         - **Policy 4**: HDFC Easy Health
         - **Policy 5**: ICICI Golden Shield
-        """)
-        
-        st.markdown("---")
-        st.markdown("### Example Queries")
-        st.markdown("""
-        - Does the policy cover AYUSH treatments?
-        - Is cashless facility available?
-        - Are maternity expenses covered?
-        - What is the coverage for critical illnesses?
         """)
     
     # Main content area
